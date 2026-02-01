@@ -1,0 +1,87 @@
+body {
+  background: linear-gradient(135deg, #ffc0da, #ffd6ec);
+  height: 100vh;
+  font-family: "Comic Sans MS", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  background: white;
+  padding: 45px;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(255,0,120,0.3);
+  text-align: center;
+  z-index: 10;
+}
+
+h1 {
+  color: #ff4f9a;
+  font-size: 2.7rem;
+}
+
+button {
+  padding: 15px 45px;
+  border: none;
+  border-radius: 40px;
+  font-size: 1.3rem;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#yes {
+  background: #ff4f9a;
+  color: white;
+}
+
+#yes:hover {
+  transform: scale(1.2);
+}
+
+#no {
+  background: #eee;
+}
+
+#surprise {
+  display: none;
+  margin-top: 20px;
+}
+
+.dog {
+  width: 160px;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0);}
+  to { transform: translateY(-20px);}
+}
+
+/* Floating hearts */
+.hearts span {
+  position: absolute;
+  bottom: -40px;
+  font-size: 25px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  from {transform: translateY(0); opacity: 1;}
+  to {transform: translateY(-900px); opacity: 0;}
+}
+
+/* Cute dogs background */
+.dogs img {
+  position: absolute;
+  width: 80px;
+  opacity: 0.8;
+  animation: drift 15s linear infinite;
+}
+
+@keyframes drift {
+  from {transform: translateY(100vh);}
+  to {transform: translateY(-150px);}
+}
