@@ -1,76 +1,98 @@
-body{
-  background: linear-gradient(135deg,#ffc1dc,#ffd9ec);
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:'Comic Sans MS', cursive;
-  overflow:hidden;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.container{
-  background:white;
-  padding:55px;
-  border-radius:35px;
-  box-shadow:0 30px 70px rgba(255,105,180,.45);
+body{
+  font-family:'Poppins',sans-serif;
+  height:100vh;
+  overflow:hidden;
+  background:#111;
+}
+
+.bg{
+  position:absolute;
+  inset:0;
+  background:url("https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+  filter:blur(6px) brightness(.6);
+  transform:scale(1.1);
+}
+
+.card{
+  position:relative;
+  z-index:2;
+  width:360px;
+  margin:auto;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(20px);
+  border-radius:25px;
+  padding:40px;
   text-align:center;
+  color:white;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(60px)}
+  to{opacity:1;transform:translateY(-50%)}
 }
 
 h1{
-  color:#ff3f8e;
-  font-size:3.2rem;
+  font-size:2.5rem;
+  font-weight:700;
 }
 
-h2{
-  color:#ff77b5;
+p{
+  margin:15px 0 30px;
+  opacity:.85;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
 }
 
 button{
-  padding:15px 45px;
+  padding:12px 28px;
   border:none;
-  border-radius:40px;
-  font-size:1.3rem;
-  margin:15px;
+  border-radius:30px;
   cursor:pointer;
+  font-size:1rem;
   transition:.3s;
 }
 
 #yes{
-  background:#ff3f8e;
+  background:#ff4d6d;
   color:white;
 }
 
 #yes:hover{
-  transform:scale(1.2);
+  transform:scale(1.1);
 }
 
 #no{
-  background:#eee;
+  background:rgba(255,255,255,.3);
+  color:white;
 }
 
-#surprise{
+.result{
   display:none;
-  margin-top:30px;
+  margin-top:25px;
+  animation:fade 1s ease;
 }
 
-.dog{
-  font-size:100px;
-  animation:bounce 1s infinite alternate;
+.result img{
+  width:140px;
+  border-radius:18px;
+  margin-bottom:15px;
 }
 
-@keyframes bounce{
-  from{transform:translateY(0)}
-  to{transform:translateY(-20px)}
-}
-
-.hearts span{
-  position:absolute;
-  bottom:-30px;
-  font-size:25px;
-  animation:float 6s linear infinite;
-}
-
-@keyframes float{
-  from{transform:translateY(0);opacity:1}
-  to{transform:translateY(-900px);opacity:0}
+@keyframes fade{
+  from{opacity:0}
+  to{opacity:1}
 }
