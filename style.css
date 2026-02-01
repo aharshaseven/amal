@@ -12,10 +12,38 @@ body{
 /* ARCADE */
 
 .arcade{
-  background:#8b2fbf;
-  padding:26px;
-  box-shadow:0 28px 0 #ff4fa3;
-  border-radius:16px;
+  position:relative;
+  background:#7b2cbf;
+  padding:22px;
+  border-radius:16px 16px 8px 8px;
+  box-shadow:0 26px 0 #ff4fa3;
+}
+
+/* cabinet body */
+.arcade::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:-120px;
+  width:260px;
+  height:120px;
+  background:#6a1bb1;
+  border-radius:0 0 18px 18px;
+  box-shadow:0 12px 0 #ff4fa3;
+}
+
+/* base */
+.arcade::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:-155px;
+  width:300px;
+  height:35px;
+  background:#ff4fa3;
+  border-radius:6px;
 }
 
 .screen{
@@ -57,18 +85,31 @@ button{
   position:absolute;
   width:16px;
   height:16px;
-  background:#f4b46a;
+  background:#f4b46a; /* golden fur */
   box-shadow:
-   16px 0 #f4b46a,
-   32px 0 #f4b46a,
-   0 16px #f4b46a,
-   16px 16px #f4b46a,
-   32px 16px #f4b46a,
-   16px 32px #d9964f;
+    /* head */
+    16px 0 #f4b46a,
+    32px 0 #f4b46a,
+    0 16px #f4b46a,
+    16px 16px #f4b46a,
+    32px 16px #f4b46a,
+
+    /* ears */
+    -8px 0 #d9964f,
+    40px 0 #d9964f,
+
+    /* eyes */
+    8px 16px #3b2a1a,
+    24px 16px #3b2a1a,
+
+    /* nose */
+    16px 24px #3b2a1a;
+
   border-radius:2px;
   animation:float linear infinite;
-  opacity:.8;
+  opacity:.85;
 }
+
 
 /* DEPTH */
 
@@ -79,18 +120,4 @@ button{
 @keyframes float{
   from{transform:translateY(110vh)}
   to{transform:translateY(-140px)}
-}
-
-/* ✨ SPARKLES */
-
-.sparkles span{
-  position:absolute;
-  color:#ff4fa3;
-  font-size:14px;
-  animation:spark 1s ease forwards;
-}
-
-@keyframes spark{
-  from{opacity:1;transform:scale(1)}
-  to{opacity:0;transform:scale(2) translateY(-40px)}
 }
