@@ -9,37 +9,25 @@ body{
   overflow:hidden;
 }
 
-/* Arcade machine */
+/* ARCADE */
 
 .arcade{
-  background:#ff4fa3;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 20px 0 #ff86c4;
+  background:#8b2fbf;
+  padding:26px;
+  box-shadow:0 28px 0 #ff4fa3;
+  border-radius:16px;
 }
 
 .screen{
   background:#fff0f7;
-  width:360px;
-  padding:25px;
-  text-align:center;
   border:6px solid hotpink;
+  padding:24px;
+  width:360px;
+  text-align:center;
 }
 
-h1{
-  color:#ff2f9b;
-  margin-bottom:10px;
-}
-
-p{
-  font-size:.7rem;
-}
-
-/* Buttons */
-
-.buttons{
-  margin-top:18px;
-}
+h1{color:#ff2f9b;}
+p{font-size:.7rem;margin-bottom:18px;}
 
 button{
   font-family:'Press Start 2P';
@@ -50,49 +38,59 @@ button{
   cursor:pointer;
 }
 
-#yes{
-  background:hotpink;
-  color:white;
-}
+#yes{background:hotpink;color:white;}
+#no{position:absolute;}
 
-#no{
-  position:absolute;
-}
+.reveal{display:none;margin-top:18px;}
+.reveal img{width:100%;border:4px solid hotpink;}
 
-/* Reveal */
-
-.reveal{
-  display:none;
-  margin-top:18px;
-}
-
-.reveal img{
-  width:100%;
-  border:4px solid hotpink;
-}
-
-.message{
+.note{
   font-size:.55rem;
   color:#ff2f9b;
+  line-height:1.5;
   margin-top:10px;
 }
 
-/* Pixel dog patch float */
+/* 🐶 PURE CSS PIXEL GOLDEN RETRIEVER PATCH */
 
-.patches span{
+.dog{
   position:absolute;
-  width:18px;
-  height:14px;
-  background:#ff9ac8;
+  width:16px;
+  height:16px;
+  background:#f4b46a;
   box-shadow:
-   20px 0 #ff9ac8,
-   0 14px #ff9ac8,
-   20px 14px #ff9ac8;
-  opacity:.6;
-  animation:float 12s linear infinite;
+   16px 0 #f4b46a,
+   32px 0 #f4b46a,
+   0 16px #f4b46a,
+   16px 16px #f4b46a,
+   32px 16px #f4b46a,
+   16px 32px #d9964f;
+  border-radius:2px;
+  animation:float linear infinite;
+  opacity:.8;
 }
+
+/* DEPTH */
+
+.layer{position:absolute;inset:0;pointer-events:none;}
+.back .dog{transform:scale(.8);opacity:.4;}
+.front .dog{transform:scale(1.2);}
 
 @keyframes float{
   from{transform:translateY(110vh)}
-  to{transform:translateY(-150px)}
+  to{transform:translateY(-140px)}
+}
+
+/* ✨ SPARKLES */
+
+.sparkles span{
+  position:absolute;
+  color:#ff4fa3;
+  font-size:14px;
+  animation:spark 1s ease forwards;
+}
+
+@keyframes spark{
+  from{opacity:1;transform:scale(1)}
+  to{opacity:0;transform:scale(2) translateY(-40px)}
 }
