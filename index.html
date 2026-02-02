@@ -17,32 +17,38 @@ body{
   overflow:hidden;
 }
 
-/* ===== ARCADE CABINET ===== */
+/* scenes */
+.scene{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  transition:.8s;
+}
+
+.hidden{opacity:0;pointer-events:none}
+
+/* ===== ARCADE ===== */
 
 .arcade{
-  position:relative;
   width:360px;
   background:#7b2cbf;
-  border-radius:16px 16px 10px 10px;
+  border-radius:16px;
   box-shadow:0 20px 0 #ff4fa3;
   padding-top:18px;
 }
 
-/* top marquee */
-
 .arcade::before{
   content:"LOVE ARCADE";
-  display:block;
   background:#ff4fa3;
   color:white;
-  text-align:center;
   padding:12px;
-  border:4px solid hotpink;
+  display:block;
   margin:0 12px 12px;
-  font-size:.75rem;
+  border:4px solid hotpink;
+  text-align:center;
 }
-
-/* screen */
 
 .screen{
   background:#fff0f7;
@@ -51,11 +57,6 @@ body{
   padding:20px;
   text-align:center;
 }
-
-h1{color:#ff2f9b;}
-p{font-size:.7rem;margin:10px 0 18px;}
-
-/* buttons */
 
 button{
   font-family:'Press Start 2P';
@@ -69,60 +70,32 @@ button{
 #yes{background:hotpink;color:white;}
 #no{position:absolute;}
 
-/* reveal */
-
 .reveal{display:none;margin-top:18px;}
-.reveal img{width:100%;border:4px solid hotpink;}
+.reveal img{width:100%;border:4px solid hotpink;cursor:pointer}
 
 .note{
   font-size:.55rem;
   color:#ff2f9b;
   margin-top:10px;
-  line-height:1.5;
 }
-
-/* control panel */
 
 .controls{
   display:flex;
   justify-content:space-around;
-  align-items:center;
   padding:18px;
   background:#6a1bb1;
-  margin-top:12px;
 }
 
-/* joystick */
-
-.joystick{
-  position:relative;
-  width:14px;
-  height:50px;
-  background:#444;
-}
-
+.joystick{width:14px;height:50px;background:#444;position:relative}
 .joystick::after{
   content:"";
   position:absolute;
-  top:-18px;
-  left:-12px;
-  width:38px;
-  height:38px;
-  background:#ff4fa3;
-  border-radius:50%;
+  top:-18px;left:-12px;
+  width:38px;height:38px;
+  background:#ff4fa3;border-radius:50%;
 }
 
-/* arcade buttons */
-
-.btn{
-  width:28px;
-  height:28px;
-  background:#ff4fa3;
-  border-radius:50%;
-  box-shadow:0 4px 0 #c81f6c;
-}
-
-/* body + base */
+.btn{width:28px;height:28px;background:#ff4fa3;border-radius:50%;box-shadow:0 4px 0 #c81f6c}
 
 .arcade::after{
   content:"";
@@ -132,31 +105,19 @@ button{
   border-radius:0 0 16px 16px;
 }
 
-.arcade-footer{
-  height:26px;
-  background:#ff4fa3;
-  margin-top:6px;
-  border-radius:6px;
-}
+.footer{height:26px;background:#ff4fa3;border-radius:6px;margin-top:6px}
 
-/* ===== FLOATING GOLDEN RETRIEVERS ===== */
+/* ===== FLOATING DOG PATCHES ===== */
 
 .patches span{
   position:absolute;
-  width:16px;
-  height:16px;
+  width:16px;height:16px;
   background:#f4b46a;
   box-shadow:
-    16px 0 #f4b46a,
-    32px 0 #f4b46a,
-    0 16px #f4b46a,
-    16px 16px #f4b46a,
-    32px 16px #f4b46a,
-    -8px 0 #d9964f,
-    40px 0 #d9964f,
-    8px 16px #3b2a1a,
-    24px 16px #3b2a1a,
-    16px 24px #3b2a1a;
+    16px 0 #f4b46a,32px 0 #f4b46a,
+    0 16px #f4b46a,16px 16px #f4b46a,32px 16px #f4b46a,
+    -8px 0 #d9964f,40px 0 #d9964f,
+    8px 16px #3b2a1a,24px 16px #3b2a1a,16px 24px #3b2a1a;
   animation:float linear infinite;
   opacity:.85;
 }
@@ -165,55 +126,112 @@ button{
   from{transform:translateY(110vh)}
   to{transform:translateY(-140px)}
 }
+
+/* ===== THEATRE ===== */
+
+.theatre{
+  text-align:center;
+}
+
+.screen-big{
+  width:80vw;
+  max-width:800px;
+  background:#000;
+  border:10px solid hotpink;
+  margin-bottom:30px;
+}
+
+.screen-big video{
+  width:100%;
+  display:block;
+}
+
+.seats{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+
+.seat{
+  width:30px;height:22px;
+  background:#7b2cbf;
+  border-radius:6px 6px 2px 2px;
+}
 </style>
 </head>
 <body>
 
 <div class="patches"></div>
 
-<div class="arcade">
+<!-- ARCADE SCENE -->
+<div class="scene arcadeScene">
 
-  <div class="screen">
-    <h1>Hey Loser</h1>
-    <p>Will you be my Valentine?</p>
+  <div class="arcade">
+    <div class="screen">
+      <h1>Anni 💖</h1>
+      <p>Will you be my Valentine?</p>
+      <button id="yes">YES</button>
+      <button id="no">NO</button>
 
-    <button id="yes">YES</button>
-    <button id="no">NO</button>
-
-    <div class="reveal">
-      <img src="ChatGPT Image Feb 1, 2026, 11_02_52 PM.png">
-      <div class="note">
-        I already knew your answer was yes I'm cool like that  
-
-        <br><br>
-        With love  
-        <br>— the funniest guy in the world Harsha 
+      <div class="reveal">
+        <img id="painting" src="bears.png">
+        <div class="note">
+          I already knew your answer was yes I'm cool like that  
+          <br><br>With love  
+          <br>— Harsha 💘
+        </div>
       </div>
+    </div>
+
+    <div class="controls">
+      <div class="joystick"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+    </div>
+    <div class="footer"></div>
+  </div>
+
+</div>
+
+<!-- THEATRE SCENE -->
+<div class="scene theatre hidden">
+
+  <div class="theatre">
+    <div class="screen-big">
+      <video controls autoplay>
+        <source src="movie.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="seats">
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
+      <div class="seat"></div>
     </div>
   </div>
 
-  <div class="controls">
-    <div class="joystick"></div>
-    <div class="btn"></div>
-    <div class="btn"></div>
-  </div>
-
-  <div class="arcade-footer"></div>
 </div>
 
 <script>
-const yes = document.getElementById("yes");
-const no = document.getElementById("no");
-const reveal = document.querySelector(".reveal");
-const patches = document.querySelector(".patches");
+const yes=document.getElementById("yes");
+const no=document.getElementById("no");
+const reveal=document.querySelector(".reveal");
+const patches=document.querySelector(".patches");
+const painting=document.getElementById("painting");
 
-yes.onclick = () => reveal.style.display="block";
+const arcade=document.querySelector(".arcadeScene");
+const theatre=document.querySelector(".theatre");
 
-no.onmouseover = () => {
+yes.onclick=()=>reveal.style.display="block";
+
+no.onmouseover=()=>{
   no.style.left=Math.random()*80+"vw";
   no.style.top=Math.random()*80+"vh";
 };
 
+/* floating dogs */
 setInterval(()=>{
   const p=document.createElement("span");
   p.style.left=Math.random()*100+"vw";
@@ -221,6 +239,12 @@ setInterval(()=>{
   patches.appendChild(p);
   setTimeout(()=>p.remove(),16000);
 },500);
+
+/* go to theatre */
+painting.onclick=()=>{
+  arcade.classList.add("hidden");
+  theatre.classList.remove("hidden");
+};
 </script>
 
 </body>
