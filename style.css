@@ -9,65 +9,59 @@ body{
   overflow:hidden;
 }
 
-/* ARCADE */
+/* ===== ARCADE CABINET ===== */
 
 .arcade{
   position:relative;
+  width:360px;
   background:#7b2cbf;
-  padding:22px;
-  border-radius:16px 16px 8px 8px;
-  box-shadow:0 26px 0 #ff4fa3;
+  border-radius:16px 16px 10px 10px;
+  box-shadow:0 20px 0 #ff4fa3;
+  padding-top:18px;
 }
 
-/* cabinet body */
-.arcade::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:-120px;
-  width:260px;
-  height:120px;
-  background:#6a1bb1;
-  border-radius:0 0 18px 18px;
-  box-shadow:0 12px 0 #ff4fa3;
-}
+/* top marquee */
 
-/* base */
 .arcade::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:-155px;
-  width:300px;
-  height:35px;
+  content:"LOVE ARCADE";
+  display:block;
   background:#ff4fa3;
-  border-radius:6px;
+  color:white;
+  text-align:center;
+  padding:12px;
+  border:4px solid hotpink;
+  margin:0 12px 12px;
+  font-size:.75rem;
 }
+
+/* screen */
 
 .screen{
   background:#fff0f7;
   border:6px solid hotpink;
-  padding:24px;
-  width:360px;
+  margin:0 18px;
+  padding:20px;
   text-align:center;
 }
 
 h1{color:#ff2f9b;}
-p{font-size:.7rem;margin-bottom:18px;}
+p{font-size:.7rem;margin:10px 0 18px;}
+
+/* buttons */
 
 button{
   font-family:'Press Start 2P';
   padding:10px 18px;
   border:3px solid hotpink;
   background:white;
-  margin:6px;
   cursor:pointer;
+  margin:6px;
 }
 
 #yes{background:hotpink;color:white;}
 #no{position:absolute;}
+
+/* reveal */
 
 .reveal{display:none;margin-top:18px;}
 .reveal img{width:100%;border:4px solid hotpink;}
@@ -75,47 +69,91 @@ button{
 .note{
   font-size:.55rem;
   color:#ff2f9b;
-  line-height:1.5;
   margin-top:10px;
+  line-height:1.5;
 }
 
-/* 🐶 PURE CSS PIXEL GOLDEN RETRIEVER PATCH */
+/* control panel */
 
-.dog{
+.controls{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  padding:18px;
+  background:#6a1bb1;
+  margin-top:12px;
+}
+
+/* joystick */
+
+.joystick{
+  position:relative;
+  width:14px;
+  height:50px;
+  background:#444;
+}
+
+.joystick::after{
+  content:"";
+  position:absolute;
+  top:-18px;
+  left:-12px;
+  width:38px;
+  height:38px;
+  background:#ff4fa3;
+  border-radius:50%;
+}
+
+/* buttons */
+
+.btn{
+  width:28px;
+  height:28px;
+  background:#ff4fa3;
+  border-radius:50%;
+  box-shadow:0 4px 0 #c81f6c;
+}
+
+/* body */
+
+.arcade::after{
+  content:"";
+  display:block;
+  height:120px;
+  background:#6a1bb1;
+  border-radius:0 0 16px 16px;
+}
+
+/* base */
+
+.arcade-footer{
+  height:26px;
+  background:#ff4fa3;
+  margin-top:6px;
+  border-radius:6px;
+}
+
+/* ===== FLOATING DOG PATCHES ===== */
+
+.patches span{
   position:absolute;
   width:16px;
   height:16px;
-  background:#f4b46a; /* golden fur */
+  background:#f4b46a;
   box-shadow:
-    /* head */
     16px 0 #f4b46a,
     32px 0 #f4b46a,
     0 16px #f4b46a,
     16px 16px #f4b46a,
     32px 16px #f4b46a,
-
-    /* ears */
     -8px 0 #d9964f,
     40px 0 #d9964f,
-
-    /* eyes */
     8px 16px #3b2a1a,
     24px 16px #3b2a1a,
-
-    /* nose */
     16px 24px #3b2a1a;
-
-  border-radius:2px;
   animation:float linear infinite;
   opacity:.85;
 }
-
-
-/* DEPTH */
-
-.layer{position:absolute;inset:0;pointer-events:none;}
-.back .dog{transform:scale(.8);opacity:.4;}
-.front .dog{transform:scale(1.2);}
 
 @keyframes float{
   from{transform:translateY(110vh)}
