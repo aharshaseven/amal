@@ -87,3 +87,21 @@ button{
 }
 
 /* r*
+.theatre{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:#ffd6e8;
+  z-index:5;
+}
+
+.arcadeScene.hidden{
+  display:none;
+}
+
+.patches.hidden{
+  display:none;
+}
