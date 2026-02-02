@@ -9,10 +9,25 @@ body{
   overflow:hidden;
 }
 
-/* ===== ARCADE CABINET ===== */
+/* ===== SCENES ===== */
+
+.scene{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  transition:.8s;
+}
+
+.hidden{
+  opacity:0;
+  pointer-events:none;
+}
+
+/* ================= ARCADE CABINET ================= */
 
 .arcade{
-  position:relative;
   width:360px;
   background:#7b2cbf;
   border-radius:16px 16px 10px 10px;
@@ -20,18 +35,16 @@ body{
   padding-top:18px;
 }
 
-/* top marquee */
-
 .arcade::before{
   content:"LOVE ARCADE";
   display:block;
   background:#ff4fa3;
   color:white;
-  text-align:center;
   padding:12px;
   border:4px solid hotpink;
   margin:0 12px 12px;
   font-size:.75rem;
+  text-align:center;
 }
 
 /* screen */
@@ -44,8 +57,14 @@ body{
   text-align:center;
 }
 
-h1{color:#ff2f9b;}
-p{font-size:.7rem;margin:10px 0 18px;}
+h1{
+  color:#ff2f9b;
+}
+
+p{
+  font-size:.7rem;
+  margin:10px 0 18px;
+}
 
 /* buttons */
 
@@ -58,104 +77,13 @@ button{
   margin:6px;
 }
 
-#yes{background:hotpink;color:white;}
-#no{position:absolute;}
-
-/* reveal */
-
-.reveal{display:none;margin-top:18px;}
-.reveal img{width:100%;border:4px solid hotpink;}
-
-.note{
-  font-size:.55rem;
-  color:#ff2f9b;
-  margin-top:10px;
-  line-height:1.5;
+#yes{
+  background:hotpink;
+  color:white;
 }
 
-/* control panel */
-
-.controls{
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  padding:18px;
-  background:#6a1bb1;
-  margin-top:12px;
-}
-
-/* joystick */
-
-.joystick{
-  position:relative;
-  width:14px;
-  height:50px;
-  background:#444;
-}
-
-.joystick::after{
-  content:"";
+#no{
   position:absolute;
-  top:-18px;
-  left:-12px;
-  width:38px;
-  height:38px;
-  background:#ff4fa3;
-  border-radius:50%;
 }
 
-/* buttons */
-
-.btn{
-  width:28px;
-  height:28px;
-  background:#ff4fa3;
-  border-radius:50%;
-  box-shadow:0 4px 0 #c81f6c;
-}
-
-/* body */
-
-.arcade::after{
-  content:"";
-  display:block;
-  height:120px;
-  background:#6a1bb1;
-  border-radius:0 0 16px 16px;
-}
-
-/* base */
-
-.arcade-footer{
-  height:26px;
-  background:#ff4fa3;
-  margin-top:6px;
-  border-radius:6px;
-}
-
-/* ===== FLOATING DOG PATCHES ===== */
-
-.patches span{
-  position:absolute;
-  width:16px;
-  height:16px;
-  background:#f4b46a;
-  box-shadow:
-    16px 0 #f4b46a,
-    32px 0 #f4b46a,
-    0 16px #f4b46a,
-    16px 16px #f4b46a,
-    32px 16px #f4b46a,
-    -8px 0 #d9964f,
-    40px 0 #d9964f,
-    8px 16px #3b2a1a,
-    24px 16px #3b2a1a,
-    16px 24px #3b2a1a;
-  animation:float linear infinite;
-  opacity:.85;
-}
-
-@keyframes float{
-  from{transform:translateY(110vh)}
-  to{transform:translateY(-140px)}
-}
+/* r*
